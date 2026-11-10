@@ -1,0 +1,28 @@
+{
+	"name": "@stream-hata/eslint-rules",
+	"version": "0.1.0",
+	"description": "Custom ESLint rules and SQL parser for StreamHata projects",
+	"type": "commonjs",
+	"main": "./index.js",
+	"exports": {
+		".": "./index.js",
+		"./rules/*": "./rules/*.js",
+		"./sql-parser": "./plugins/sql-parser/dist/index.js"
+	},
+	"files": [
+		"index.js",
+		"rules",
+		"plugins/sql-parser/dist",
+		"plugins/sql-parser/package.json",
+		"README.md"
+	],
+	"keywords": [
+		"eslint",
+		"eslintplugin",
+		"streamhata"
+	],
+	"license": "MIT",
+	"peerDependencies": {
+		"eslint": ">=9.0.0"
+	}
+}

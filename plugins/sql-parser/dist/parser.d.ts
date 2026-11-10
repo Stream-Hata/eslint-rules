@@ -1,0 +1,71 @@
+import type { StatementNode } from './ast.js';
+import type { CommentToken, Position, Token } from './tokenizer.js';
+export declare class ParseError extends SyntaxError {
+  readonly lineNumber: number;
+  readonly column: number;
+  readonly index: number;
+  constructor(message: string, loc: Position, index: number);
+}
+export declare class SqlParser {
+  private readonly code;
+  private readonly tokens;
+  private readonly eofToken;
+  private index;
+  constructor(code: string, tokens: Token[]);
+  parseProgram(): StatementNode[];
+  private parseStatement;
+  private parseSelect;
+  private parseSelectList;
+  private parseFromClause;
+  private isJoinStart;
+  private parseJoinClause;
+  private parseTableRef;
+  private parseGroupBy;
+  private parseOrderBy;
+  private parseLimit;
+  private parseInsert;
+  private parseUpdate;
+  private parseDelete;
+  private parseCreateTable;
+  private parseColumnDef;
+  private parseDropTable;
+  private parseAlterTable;
+  private parseExpression;
+  private parseExpressionList;
+  private parseOr;
+  private parseAnd;
+  private parseNot;
+  private parseComparison;
+  private parseAdditive;
+  private parseMultiplicative;
+  private parseUnary;
+  private parsePrimary;
+  private parseIdentifierExpression;
+  private parseFunctionCall;
+  private parseCase;
+  private parseIdentifierNode;
+  private isAllowedAsIdentifier;
+  private canBeAlias;
+  private span;
+  private atEnd;
+  private current;
+  private previous;
+  private advance;
+  private isPunctuator;
+  private matchPunctuator;
+  private expectPunctuator;
+  private isOperator;
+  private matchAnyOperator;
+  private expectOperator;
+  private isKeyword;
+  private isNextKeyword;
+  private matchKeyword;
+  private expectKeyword;
+  private raise;
+}
+export interface ParseResult {
+  body: StatementNode[];
+  tokens: Token[];
+  comments: CommentToken[];
+}
+export declare function parse(code: string): ParseResult;
