@@ -29,14 +29,14 @@ module.exports = [
 	{
 		files: ['**/*.html'],
 		plugins: {
-			local: {
+			'stream-hata': {
 				rules: {
 					'html-format': htmlFormat,
 				},
 			},
 		},
 		rules: {
-			'local/html-format': [
+			'stream-hata/html-format': [
 				'error',
 				{
 					indent: 2,
@@ -54,7 +54,7 @@ module.exports = [
 			parser: sqlParser,
 		},
 		rules: {
-			'local/sql-rules': [
+			'stream-hata/sql-rules': [
 				'error',
 				{
 					noSelectStar: true,
@@ -68,12 +68,12 @@ module.exports = [
 ];
 ```
 
-`streamHata.rules` contains all rules keyed without the `local/` prefix.
+`streamHata.rules` contains all rules keyed without the `stream-hata/` prefix.
 `streamHata.parsers.sql` is the SQL parser.
 
 ## Rules
 
-### `local/component-imports-unused`
+### `stream-hata/component-imports-unused`
 
 Removes unused entries from Angular decorator arrays and drops empty arrays.
 
@@ -90,7 +90,7 @@ Options:
 - `sortArrays` — arrays that must be sorted;
 - `importGroups` — keep import groups separated.
 
-### `local/html-format`
+### `stream-hata/html-format`
 
 Formats Angular templates: indentation, attribute wrapping/alignment, trailing spaces,
 blank lines and optional attribute sorting.
@@ -108,7 +108,7 @@ Options:
 
 The rule skips complex multi-line Angular expressions to avoid corrupting templates.
 
-### `local/no-output-to-input`
+### `stream-hata/no-output-to-input`
 
 Forbids forwarding `@Output` values into component inputs and manual model bridges.
 
@@ -127,7 +127,7 @@ Options:
 - `ignoreInputs` — input names to ignore;
 - `ignoreOutputs` — output names to ignore.
 
-### `local/no-signal-misuse`
+### `stream-hata/no-signal-misuse`
 
 Forbids:
 
@@ -141,19 +141,19 @@ Options:
 - `observableFactories` — known observable factories;
 - `flagPipeOnObservables` — flag `.pipe()` on `$`-suffixed observables, default `true`.
 
-### `local/sql-format`
+### `stream-hata/sql-format`
 
 Formats SQL with `sql-formatter`.
 
 Options: `language`, `tabWidth`, `useTabs`.
 
-### `local/sql-indent`
+### `stream-hata/sql-indent`
 
 Checks SQL indentation.
 
 Options: `language`, `tabWidth`, `useTabs`.
 
-### `local/sql-rules`
+### `stream-hata/sql-rules`
 
 SQL lint rules:
 
@@ -163,11 +163,11 @@ SQL lint rules:
 - `identifierCase` (`snake_case`);
 - `trailingWhitespace`.
 
-### `local/sql-in-ts`
+### `stream-hata/sql-in-ts`
 
 Runs SQL rules for template literals in TypeScript.
 
-Options: same as `local/sql-rules`, plus:
+Options: same as `stream-hata/sql-rules`, plus:
 
 - `tags` — tagged template names, default `sql`;
 - `strings` — also check plain strings.
