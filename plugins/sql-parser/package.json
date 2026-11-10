@@ -19,7 +19,8 @@
     "build": "tsc -p tsconfig.build.json",
     "lint": "eslint .",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:coverage": "vitest run --coverage --coverage.reporter=lcov"
   },
   "keywords": [
     "eslint",
@@ -38,6 +39,7 @@
     "jiti": "^2.7.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.1",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.1",
+    "@vitest/coverage-v8": "^5.0.1"
   }
 }

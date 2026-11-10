@@ -1,5 +1,7 @@
 # @stream-hata/eslint-rules
 
+[![codecov](https://codecov.io/gh/Stream-Hata/eslint-rules/branch/main/graph/badge.svg)](https://codecov.io/gh/Stream-Hata/eslint-rules)
+
 Custom ESLint rules and the SQL parser shared by StreamHata projects.
 
 The package is CommonJS and targets ESLint 9 flat config.
